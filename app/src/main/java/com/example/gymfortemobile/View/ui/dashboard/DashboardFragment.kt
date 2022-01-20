@@ -16,11 +16,8 @@ import com.example.gymfortemobile.databinding.FragmentHomeBinding
 
 class DashboardFragment : Fragment() {
 
-    private val homeViewModel: DisciplinaViewModel by viewModels()
+
     private lateinit var  binding : FragmentHomeBinding
-    private val listaDisciplina = mutableListOf<Disciplina>()
-    // This property is only valid between onCreateView and
-    // onDestroyView.
 
 
     override fun onCreateView(

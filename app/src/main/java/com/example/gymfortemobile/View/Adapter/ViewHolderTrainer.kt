@@ -8,11 +8,12 @@ import com.example.gymfortemobile.databinding.ItemCardDisciplinaBinding
 import com.example.gymfortemobile.databinding.ItemCardTrainerBinding
 import com.squareup.picasso.Picasso
 
-class ViewHolderDisciplina (view: View): RecyclerView.ViewHolder(view) {
+class ViewHolderTrainer (view: View): RecyclerView.ViewHolder(view) {
     val binding = ItemCardTrainerBinding.bind(view)
 
     fun bind(trainer: Trainer){
-        binding.txtNombreDisciplina.text= trainer.nombre
-        Picasso.get().load(trainer.foto).into(binding.imgDisciplina)
+        binding.txtApellido.text= trainer.apellido
+        binding.txtDisciplina.text= trainer.disciplinas?.nombre
+        Picasso.get().load(trainer.foto).into(binding.imgTrainer)
     }
 }
