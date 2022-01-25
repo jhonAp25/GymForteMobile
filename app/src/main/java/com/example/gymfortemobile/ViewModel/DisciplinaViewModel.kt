@@ -33,7 +33,7 @@ class DisciplinaViewModel: ViewModel(){
             }
 
             override fun onFailure(call: Call<List<Disciplina>>, t: Throwable) {
-
+                Log.e("Jhon" , "GAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             }
 
         } )

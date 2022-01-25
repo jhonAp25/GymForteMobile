@@ -9,17 +9,30 @@
         android:id="@+id/navigation_home"
         android:name="com.example.gymfortemobile.View.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_claseFragment"
+            app:destination="@id/claseFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.gymfortemobile.View.ui.dashboard.DashboardFragment"
+        android:name="com.example.gymfortemobile.View.ui.horario.HorarioFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_horario" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.gymfortemobile.View.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_notificacion"
+        android:name="com.example.gymfortemobile.View.ui.perfil.PerfilFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/claseFragment"
+        android:name="com.example.gymfortemobile.View.ui.home.ClaseFragment"
+        android:label="ClaseFragment" />
+    <fragment
+        android:id="@+id/navigation_pago"
+        android:name="com.example.gymfortemobile.View.ui.pago.PagoFragment"
+        android:label="fragment_pago"
+        tools:layout="@layout/fragment_pago" />
 </navigation>

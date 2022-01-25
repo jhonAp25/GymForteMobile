@@ -11,11 +11,16 @@
         android:icon="@drawable/ic_horario"
         android:title="@string/title_dashboard" />
 
+
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_pago"
+        android:icon="@drawable/ic_ph_coins"
+        android:title="@string/title_pagos" />
+
+    <item
+        android:id="@+id/navigation_notificacion"
         android:icon="@drawable/ic_user"
         android:title="@string/title_notifications" />
-
 </menu>
 
 

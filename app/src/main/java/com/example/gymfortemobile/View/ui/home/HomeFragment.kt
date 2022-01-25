@@ -1,7 +1,10 @@
 package com.example.gymfortemobile.View.ui.home
 
+
+import android.app.AlertDialog
 import android.content.Context
-import android.content.SharedPreferences
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,10 +19,19 @@ import com.example.gymfortemobile.Model.Disciplina
 import com.example.gymfortemobile.Model.Trainer
 import com.example.gymfortemobile.View.Adapter.AdapterDisciplina
 import com.example.gymfortemobile.View.Adapter.AdapterTrainer
+import com.example.gymfortemobile.View.ui.Login
 import com.example.gymfortemobile.ViewModel.DisciplinaViewModel
 import com.example.gymfortemobile.ViewModel.TrainerViewModel
 import com.example.gymfortemobile.databinding.FragmentHomeBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import android.content.Context.MODE_PRIVATE
+
+import android.content.SharedPreferences
+
+
+
 
 class HomeFragment : Fragment() {
 
@@ -44,6 +56,36 @@ class HomeFragment : Fragment() {
         binding= FragmentHomeBinding.inflate(inflater,container,false)
 
 
+
+        binding.btnSalir.setOnClickListener {
+            /************************************** DELETE-SHARED-PREFERENCES  *************/
+            val shared = context?.getSharedPreferences("usuario", 0)
+            shared?.edit()?.remove("nombre")?.commit()
+            shared?.edit()?.remove("imgPerfil")?.commit()
+            shared?.edit()?.remove("id")?.commit()
+           // showAlertDialog( binding.root )
+
+            val dialogBuilder = AlertDialog.Builder(getContext())
+            dialogBuilder.setMessage("Desea cerrar Sesion ?")
+                // if the dialog is cancelable
+                .setPositiveButton("Si", DialogInterface.OnClickListener {
+                        dialog, id ->
+
+
+                    val login = Intent(activity, Login ::class.java)
+                    startActivity(login)
+                })
+                .setNegativeButton("No, Cancelar", DialogInterface.OnClickListener {
+                        dialog, id ->
+                    dialog.dismiss()
+
+                })
+
+            val alert = dialogBuilder.create()
+            alert.setTitle("Alert")
+            alert.show()
+
+        }
 
 
 
@@ -120,6 +162,30 @@ class HomeFragment : Fragment() {
             }
         } )
     }
+
+
+    fun  showAlertDialog(view  : View){
+
+
+        MaterialAlertDialogBuilder( requireContext().applicationContext )
+            .setTitle("Alert")
+            .setMessage("Cerrar Sesion ?")
+            .setPositiveButton("Si" ){dialog , which->
+                val login = Intent(activity, Login ::class.java)
+                startActivity(login)
+            }
+            .setNegativeButton("No, Cancelar"){dialog, which->
+                showSnackbar("Tankiuu <3")
+            }.show()
+
+
+
+    }
+
+    private fun showSnackbar(msg:String){
+        Snackbar.make(  binding.root ,msg, Snackbar.LENGTH_SHORT).show()
+    }
+
 
 
 

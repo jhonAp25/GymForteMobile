@@ -18,9 +18,8 @@ import org.json.JSONObject
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import android.content.SharedPreferences
-
-
-
+import android.view.inputmethod.InputMethodManager
+import com.google.android.material.snackbar.Snackbar
 
 
 class Login : AppCompatActivity() {
@@ -45,8 +44,11 @@ class Login : AppCompatActivity() {
 
 
         binding.btnLogin.setOnClickListener {
+            val imm: InputMethodManager =
+                getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(binding.txtPassword.getWindowToken(), 0)
             Login(user.toString() , password.toString() )
-            Log.d("JHONX", "HOALASDASDASD")
+
         }
 
 
@@ -62,39 +64,41 @@ class Login : AppCompatActivity() {
             )
             val request = JsonObjectRequest(Request.Method.POST, "https://idat-gym.herokuapp.com/usuario/login", json,
                 { response ->
-                    Log.d("apaza-deuda", "===> ${response}")
+
                     val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    val jsonObject: JSONObject = response.getJSONObject("Usuario")
+                    val jsonCliente : JSONObject =  jsonObject.getJSONObject("cliente")
+
+                    guardarUsuario( jsonCliente.getString("nombre") ,
+                                    jsonCliente.getString("foto"),
+                                    jsonCliente.getString("apellido"),
+                                    jsonCliente.getString("id"));
 
 
-                    try {
-                        val jsonObject: JSONObject = response.getJSONObject("Usuario")
-                        val jsonCliente : JSONObject =  jsonObject.getJSONObject("cliente")
-
-                        Log.d("JHON", jsonCliente.getString("foto"))
-                        guardarUsuario(jsonCliente.getString("nombre") , jsonCliente.getString("foto"),jsonCliente.getString("apellido") );
-
-                        startActivity(intent)
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
-                    }
                 }) { error ->
-
-                Log.d("ERROR", "===> $error")
+                showSnackbar("Credenciales Incorrectas")
+                Log.d("jhon", error.toString())
             }
             queue.add(request)
         } catch (e: JSONException) {
-            Log.d("errorJSON", "===> $e")
+
         }
     }
 
-    fun guardarUsuario(nombre: String? , imgPerfil: String?, apellido: String?) {
+    fun guardarUsuario(nombre: String? , imgPerfil: String?, apellido: String?, idCliente: String?) {
         val shared = applicationContext.getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val editor = shared.edit()
         editor.putString("nombre", nombre)
         editor.putString("apellido", apellido)
         editor.putString("imgPerfil", imgPerfil)
+        editor.putString("id" , idCliente)
         editor.commit()
     }
 
+
+    private fun showSnackbar(msg:String){
+        Snackbar.make(  binding.root ,msg, Snackbar.LENGTH_SHORT).show()
+    }
 
 }
