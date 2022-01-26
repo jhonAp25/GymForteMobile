@@ -22,11 +22,16 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
     RecyclerView.Adapter<AdapterCalendar.MyViewHolder>() {
     private val list = ArrayList<CalendarDateModel>()
 
+    var listene: OnItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyViewHolder{
         val inflater = LayoutInflater.from(parent.context)
         return MyViewHolder(inflater.
         inflate(R.layout.item_custom_calendar_day, parent, false))
+    }
+
+    fun setClickListener(listener1: OnItemClickListener){
+        listene = listener1
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -103,9 +108,14 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
             calendarDate.text = calendarDateModel.calendarDate
             cardView.setOnClickListener {
                 listener.invoke(calendarDateModel, adapterPosition)
+                listene!!.onClicked(dia = list[position].calendarDate)
             }
         }
 
+    }
+
+    interface OnItemClickListener{
+        fun onClicked(dia:String)
     }
 
 

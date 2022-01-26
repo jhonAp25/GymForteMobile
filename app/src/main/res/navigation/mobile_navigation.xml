@@ -29,10 +29,27 @@
     <fragment
         android:id="@+id/claseFragment"
         android:name="com.example.gymfortemobile.View.ui.home.ClaseFragment"
-        android:label="ClaseFragment" />
+        android:label="ClaseFragment" >
+        <action
+            android:id="@+id/action_claseFragment_to_incripcionFragment"
+            app:destination="@id/incripcionFragment" />
+        <argument
+            android:name="amount"
+            app:argType="long" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_pago"
         android:name="com.example.gymfortemobile.View.ui.pago.PagoFragment"
         android:label="fragment_pago"
         tools:layout="@layout/fragment_pago" />
+    <fragment
+        android:id="@+id/incripcionFragment"
+        android:name="com.example.gymfortemobile.View.ui.home.IncripcionFragment"
+        android:label="fragment_inscripcion"
+        tools:layout="@layout/fragment_inscripcion" >
+        <argument
+            android:name="amount"
+            app:argType="long" />
+
+    </fragment>
 </navigation>

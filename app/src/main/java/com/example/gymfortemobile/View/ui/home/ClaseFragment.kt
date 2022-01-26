@@ -21,13 +21,16 @@ import com.example.gymfortemobile.databinding.FragmentClaseBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import com.example.gymfortemobile.Model.Clase
 
 
 class ClaseFragment : Fragment() {
 
+    private val argsss: ClaseFragmentArgs by navArgs()
 
     private val inscripcionViewModel: ViewModelCalendar by viewModels()
-    private val inscripcion = mutableListOf<Inscripcion>()
+    private val inscripcion = mutableListOf<Clase>()
     private lateinit var adapterins: AdapterInscripcion
 
     /**
@@ -61,7 +64,7 @@ class ClaseFragment : Fragment() {
 
 
 
-        GetInscripcion()
+        //GetInscripcion()
         ViewModelInscripcion()
         RecyclerViewDisci( binding.rvTrainer)
 
@@ -120,6 +123,9 @@ class ClaseFragment : Fragment() {
             else
                 setUpCalendar()
         }
+        binding.recyclerView
+        //dia
+        adapter.setClickListener(onCLicked)
     }
 
     private fun setUpAdapter() {
@@ -136,14 +142,18 @@ class ClaseFragment : Fragment() {
         binding.recyclerView.adapter = adapter
     }
 
+    private val onCLicked  = object : AdapterCalendar.OnItemClickListener{
+        override fun onClicked(dia: String) {
+            GetInscripcion(dia)
+        }
+    }
+    private fun GetInscripcion(dia:String){
 
-    private fun GetInscripcion(){
-        val idc: Long
-        val fecha= "2022-01-22"
+        val amount = argsss.amount
+        val fecha= "2022-01-$dia"
         val id:Long
-        idc=2
-        id=3
-        inscripcionViewModel.getListaInscripciones(2, "2022-01-22", 3)
+        id=amount
+        inscripcionViewModel.getListaInscripciones(fecha, id)
     }
     private fun RecyclerViewDisci( rv: RecyclerView){
         adapterins = AdapterInscripcion( inscripcion )
