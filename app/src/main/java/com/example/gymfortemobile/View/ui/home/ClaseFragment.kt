@@ -124,7 +124,7 @@ class ClaseFragment : Fragment() {
                 setUpCalendar()
         }
         binding.recyclerView
-        //dia
+        //al seleccionar el dia
         adapter.setClickListener(onCLicked)
     }
 
@@ -141,7 +141,7 @@ class ClaseFragment : Fragment() {
         }
         binding.recyclerView.adapter = adapter
     }
-
+    //seleccionar el dia cargara el recicler de clase/trainers
     private val onCLicked  = object : AdapterCalendar.OnItemClickListener{
         override fun onClicked(dia: String) {
             GetInscripcion(dia)
@@ -149,7 +149,9 @@ class ClaseFragment : Fragment() {
     }
     private fun GetInscripcion(dia:String){
 
+        //trae el id de home/disciplina
         val amount = argsss.amount
+        // cambia al seleccionar el numero del dia
         val fecha= "2022-01-$dia"
         val id:Long
         id=amount
