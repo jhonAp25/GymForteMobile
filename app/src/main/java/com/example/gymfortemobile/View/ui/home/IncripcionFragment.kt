@@ -37,7 +37,9 @@ class IncripcionFragment : Fragment() {
 
     private fun initUI(){
         val amount = argss.amount
+        val amoun = argss.amoun
         val id : Long
+        //val edad : Long
         //id = 1
         id= amount.toLong()
         viewModel.getTrainerInfo(id)
@@ -47,7 +49,7 @@ class IncripcionFragment : Fragment() {
             binding.txtdisciplina.text=trainer.disciplinas?.nombre
             binding.txtedad.text=trainer.fechaNac
             binding.txtgenero.text=trainer.genero
-            binding.txthora.text="9:00"
+            binding.txthora.text=amoun
             binding.txtfechaclas.text="2022-01-22"
 
 

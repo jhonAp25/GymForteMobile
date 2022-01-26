@@ -50,6 +50,9 @@
         <argument
             android:name="amount"
             app:argType="long" />
+        <argument
+            android:name="amoun"
+            app:argType="string" />
 
     </fragment>
 </navigation>

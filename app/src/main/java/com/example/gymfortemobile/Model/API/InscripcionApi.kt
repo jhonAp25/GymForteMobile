@@ -8,9 +8,8 @@ import retrofit2.http.Path
 
 interface InscripcionApi {
 
-    @GET("/inscripcion/buscar/{idc}/{fecha}/{id}")
-    fun listarTrainers(@Path("idc") idc: Long,
-                       @Path("fecha") fecha: String,
-                       @Path("id") id: Long):
+    @GET("/inscripcion/buscar/{idc}/{fecha}")
+    fun listarClases(@Path("idc") idc: Long,
+                       @Path("fecha") fecha: String):
             Call<List<Inscripcion>>
 }
