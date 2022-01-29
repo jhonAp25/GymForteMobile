@@ -1,16 +1,17 @@
 package com.example.gymfortemobile.Model
 
+import android.widget.TextView
 import com.google.gson.annotations.SerializedName
 
-class Inscripcion (
+class Inscripcion(
     @SerializedName("id")
-    val  id: Long?,
+    val id: Long?,
 
     @SerializedName("estado")
     val estado: String?,
 
     @SerializedName("reserva")
-    val reserva:Reserva?,
+    val reserva: Reserva,
     @SerializedName("clase")
-    val clase:Clase?
+    val clase: Clase
     )

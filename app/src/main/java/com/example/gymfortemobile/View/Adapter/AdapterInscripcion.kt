@@ -28,11 +28,13 @@ class AdapterInscripcion (private val Lista:List<Clase>):
         holder.itemView.setOnClickListener {view->
 
             val amountTv: TextView = view!!.findViewById(R.id.txtid)
+            val amountw: TextView = view!!.findViewById(R.id.txtidcla)
             val amountT: TextView = view!!.findViewById(R.id.txthor)
             val amount = amountTv.text.toString().toLong()
             val amoun = amountT.text.toString()
+            val amou = amountw.text.toString().toLong()
             val action = ClaseFragmentDirections.actionClaseFragmentToIncripcionFragment(amount,
-                amoun)
+                amoun,amou)
             view.findNavController().navigate(action)
 
         }

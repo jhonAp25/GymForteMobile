@@ -10,6 +10,6 @@ interface ClaseApi {
 
     @GET("clase/buscar/{fecha}/{id}")
     fun listarTrainers(@Path("fecha") fecha: String,
-                       @Path("id") id: Long):
+                       @Path("id") id:Long):
             Call<List<Clase>>
 }

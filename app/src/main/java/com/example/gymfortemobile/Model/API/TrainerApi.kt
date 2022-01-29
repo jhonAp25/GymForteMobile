@@ -12,4 +12,5 @@ interface TrainerApi {
 
     @GET("/trainer/{id}")
     fun getbyTrainer( @Path("id") id: Long):Call<Trainer>
+
 }

@@ -14,9 +14,8 @@ import java.util.*
 /**
  * Y los bucles while continúan agregando las fechas en la lista de
  * arreglos y tan pronto como los recopilemos, crearemos un adaptador
- * de recyclerview para mostrar esos datos.
+ * de recyclerview para mostrar esos dato.
  */
-
 class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateModel,
                                               position: Int) -> Unit) :
     RecyclerView.Adapter<AdapterCalendar.MyViewHolder>() {

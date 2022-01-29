@@ -14,6 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ViewModelCalendar: ViewModel()  {
+
     val listaInscripcion = MutableLiveData<List<Clase>>()
 
     fun getListaInscripciones (fecha:String,id:Long){

@@ -12,20 +12,20 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_claseFragment"
-            app:destination="@id/claseFragment" />
+            app:destination="@id/claseFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.gymfortemobile.View.ui.horario.HorarioFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_horario" />
+        tools:layout="@layout/fragment_horario"/>
 
     <fragment
         android:id="@+id/navigation_notificacion"
         android:name="com.example.gymfortemobile.View.ui.perfil.PerfilFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil"/>
     <fragment
         android:id="@+id/claseFragment"
         android:name="com.example.gymfortemobile.View.ui.home.ClaseFragment"
@@ -35,13 +35,13 @@
             app:destination="@id/incripcionFragment" />
         <argument
             android:name="amount"
-            app:argType="long" />
+            app:argType="long"/>
     </fragment>
     <fragment
         android:id="@+id/navigation_pago"
         android:name="com.example.gymfortemobile.View.ui.pago.PagoFragment"
         android:label="fragment_pago"
-        tools:layout="@layout/fragment_pago" />
+        tools:layout="@layout/fragment_pago"/>
     <fragment
         android:id="@+id/incripcionFragment"
         android:name="com.example.gymfortemobile.View.ui.home.IncripcionFragment"
@@ -49,10 +49,13 @@
         tools:layout="@layout/fragment_inscripcion" >
         <argument
             android:name="amount"
-            app:argType="long" />
+            app:argType="long"/>
         <argument
             android:name="amoun"
-            app:argType="string" />
+            app:argType="string"/>
+        <argument
+            android:name="amou"
+            app:argType="long"/>
 
     </fragment>
 </navigation>

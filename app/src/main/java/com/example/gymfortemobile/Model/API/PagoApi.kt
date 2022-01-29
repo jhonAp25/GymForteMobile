@@ -9,6 +9,5 @@ import retrofit2.http.Path
 interface PagoApi {
     @GET("/pago/{id}")
     fun listarPago(@Path("id")id:Long): Call<List<Pago>>
-
 }
 

@@ -50,14 +50,14 @@ class HorarioFragment : Fragment() {
 
     private val calendarList2 = ArrayList<CalendarDateModel>()
     private lateinit var adapter: AdapterCalendar
-    private lateinit var binding: FragmentClaseBinding
+    private lateinit var binding: FragmentHorarioBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentClaseBinding.inflate(inflater, container, false)
+        binding = FragmentHorarioBinding.inflate(inflater, container, false)
         val view = binding.root
 
 
@@ -168,6 +168,7 @@ class HorarioFragment : Fragment() {
         rv.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false )
         rv.adapter = adapterins
     }
+
 
 
     private fun ViewModelInscripcion(){

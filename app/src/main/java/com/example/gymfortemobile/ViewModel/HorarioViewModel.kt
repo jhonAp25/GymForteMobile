@@ -31,7 +31,6 @@ class HorarioViewModel: ViewModel()  {
                     }else{
                         Log.e("JHON" , "NEL")
                     }
-
                 }
             }
 

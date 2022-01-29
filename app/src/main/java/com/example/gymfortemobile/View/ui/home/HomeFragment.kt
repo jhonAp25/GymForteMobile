@@ -85,6 +85,7 @@ class HomeFragment : Fragment() {
             alert.setTitle("Alert")
             alert.show()
 
+
         }
 
 
@@ -185,7 +186,6 @@ class HomeFragment : Fragment() {
     private fun showSnackbar(msg:String){
         Snackbar.make(  binding.root ,msg, Snackbar.LENGTH_SHORT).show()
     }
-
 
 
 

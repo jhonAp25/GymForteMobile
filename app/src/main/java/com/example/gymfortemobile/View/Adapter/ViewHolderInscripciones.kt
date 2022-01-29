@@ -13,6 +13,7 @@ class ViewHolderInscripciones (view: View): RecyclerView.ViewHolder(view) {
     val binding = ItemCardClasesBinding.bind(view)
 
     fun bind(inscripcion: Inscripcion){
+
         binding.txtDiscip.text= inscripcion.clase?.disciplina?.nombre
         binding.txtiddd.text= inscripcion.clase?.trainers?.id.toString()
         binding.txthorario.text=inscripcion.clase?.horaIni?.substring(14)+"  -  "+inscripcion.clase?.horaFin?.substring(14)

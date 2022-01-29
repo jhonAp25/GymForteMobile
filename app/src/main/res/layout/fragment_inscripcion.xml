@@ -31,6 +31,24 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/txtiid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="176dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="177dp"
+                android:gravity="center"
+                android:text="NOMBRE"
+                android:textColor="@color/NAVBAR"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/txttrainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +206,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnreservar"
+                android:id="@+id/btninscribir"
                 android:layout_width="346dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="1dp"

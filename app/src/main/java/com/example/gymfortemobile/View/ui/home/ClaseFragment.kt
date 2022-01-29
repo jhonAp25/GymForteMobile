@@ -109,7 +109,7 @@ class ClaseFragment : Fragment() {
 
     /**
      * Necesitamos el mes siguiente y el anterior al hacer clic en la flecha.
-     * Así que aquí solo tenemos que agregar 1 mes y -1 mes del calendario actual.
+     * Así que aquí solo tenemos que agregar 1 mes y -1 mes del calendario actual
      */
     private fun setUpClickListener() {
         binding.ivCalendarNext.setOnClickListener {

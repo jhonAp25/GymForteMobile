@@ -14,6 +14,7 @@ class ViewHolderInscripcion (view: View): RecyclerView.ViewHolder(view) {
     fun bind(clase: Clase){
         binding.txtNombre.text= clase.trainers?.nombre+", "+clase.trainers?.apellido
         binding.txtid.text= clase.trainers?.id.toString()
+        binding.txtidcla.text= clase.id.toString()
         Picasso.get().load(clase.trainers?.foto).into(binding.imgTrainer)
         binding.txthor.text= clase.horaIni?.substring(14)+" - "+clase.horaFin?.substring(14)
 

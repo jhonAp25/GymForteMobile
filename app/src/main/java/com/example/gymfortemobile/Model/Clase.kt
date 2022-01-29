@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 
 class Clase (
     @SerializedName("id")
-    val id: Long?,
+    var id: Long?,
     @SerializedName("cuposmax")
     val cuposmax: Long?,
     @SerializedName("horaIni")
@@ -17,7 +17,7 @@ class Clase (
     @SerializedName("trainers")
     val trainers: Trainer?,
     @SerializedName("clase")
-    val clase: Clase?
+    val salon: Salon?
 
 
 

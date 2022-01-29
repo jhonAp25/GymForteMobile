@@ -24,5 +24,6 @@ class ViewHolerDisciplina(view:View):RecyclerView.ViewHolder(view) {
             val action = HomeFragmentDirections.actionNavigationHomeToClaseFragment(amount)
             it.findNavController().navigate(action)
         }
+
     }
 }

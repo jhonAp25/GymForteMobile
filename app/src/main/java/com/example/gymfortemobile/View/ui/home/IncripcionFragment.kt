@@ -1,6 +1,8 @@
 package com.example.gymfortemobile.View.ui.home
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.example.gymfortemobile.Model.Clase
+import com.example.gymfortemobile.Model.Cliente
+import com.example.gymfortemobile.Model.Inscripcion
+import com.example.gymfortemobile.Model.Reserva
 import com.example.gymfortemobile.ViewModel.InscripcionViewModel
 import com.example.gymfortemobile.databinding.FragmentInscripcionBinding
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 
 class IncripcionFragment : Fragment() {
@@ -30,6 +37,35 @@ class IncripcionFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(InscripcionViewModel::class.java)
 
 
+        /// no funciona
+        binding.btninscribir.setOnClickListener {
+            //id_reserva
+            val idd : Long
+            idd=binding.txtiid.text.toString().toLong()
+
+            //ID_CLASE
+            val amou = argss.amou
+            //val id : Long
+
+            val userInfo = Inscripcion(  id = null,
+                clase = Clase(id=amou,null,null,null,null,null,null),
+                estado = "",
+                reserva = Reserva(id = idd, null,
+                    Cliente(null,null,null,null,null,null,null)
+                    ,null,true)
+            )
+
+            viewModel.getinscInfo(userInfo)
+
+/*
+            viewModel.getinscInfo(amou ,"string", idd)
+
+*/
+            showSnackbar("Inscripcion Realizada")
+
+        }
+
+        initU()
         initUI()
 
         return binding.root;
@@ -38,9 +74,9 @@ class IncripcionFragment : Fragment() {
     private fun initUI(){
         val amount = argss.amount
         val amoun = argss.amoun
+
         val id : Long
-        //val edad : Long
-        //id = 1
+
         id= amount.toLong()
         viewModel.getTrainerInfo(id)
 
@@ -56,4 +92,26 @@ class IncripcionFragment : Fragment() {
             Picasso.get().load(trainer.foto).into(binding.imgtrainer)
         })
     }
+
+    private fun initU(){
+
+        /************************************** RESPONSE-SHARED-PREFERENCES  *************/
+        val shared = context?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
+
+        val idCliente = shared?.getString("id", "0 ").toString().toLong()
+
+
+        viewModel.getReservaInfo(idCliente)
+
+        viewModel.reservaInfo.observe(viewLifecycleOwner, Observer { reserva ->
+            binding.txtiid.text= reserva.id.toString()
+
+        })
+    }
+
+    private fun showSnackbar(msg:String){
+        Snackbar.make(  binding.root ,msg, Snackbar.LENGTH_SHORT).show()
+    }
+
+
 }

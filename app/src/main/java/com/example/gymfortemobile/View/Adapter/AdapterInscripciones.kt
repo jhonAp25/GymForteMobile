@@ -19,14 +19,7 @@ class AdapterInscripciones (private val Lista:List<Inscripcion>):
     override fun onBindViewHolder(holder: ViewHolderInscripciones, position: Int) {
         val item: Inscripcion =  Lista[ position ]
         holder.bind( item )
-/*        holder.itemView.setOnClickListener {view->
 
-            val amountTv: TextView = view!!.findViewById(R.id.txtid)
-            val amount = amountTv.text.toString().toLong()
-            val action = ClaseFragmentDirections.actionClaseFragmentToIncripcionFragment(amount)
-            view.findNavController().navigate(action)
-
-        }*/
     }
 
     override fun getItemCount(): Int {
