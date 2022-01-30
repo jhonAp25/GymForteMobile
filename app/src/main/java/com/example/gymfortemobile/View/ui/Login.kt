@@ -47,7 +47,7 @@ class Login : AppCompatActivity() {
             val imm: InputMethodManager =
                 getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(binding.txtPassword.getWindowToken(), 0)
-            Login(user.toString() , password.toString() )
+            Login(user.toString().trim() , password.toString().trim() )
 
         }
 

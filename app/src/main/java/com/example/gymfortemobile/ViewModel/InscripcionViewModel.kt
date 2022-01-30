@@ -1,16 +1,16 @@
 package com.example.gymfortemobile.ViewModel
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gymfortemobile.Model.*
 import com.example.gymfortemobile.Model.API.InscripcionApi
 import com.example.gymfortemobile.Model.API.ReservaApi
 import com.example.gymfortemobile.Model.API.TrainerApi
-import com.example.gymfortemobile.Model.Clase
-import com.example.gymfortemobile.Model.Inscripcion
-import com.example.gymfortemobile.Model.Reserva
-import com.example.gymfortemobile.Model.Trainer
 import com.example.gymfortemobile.Util.RetrofitHelpers
+import com.example.gymfortemobile.View.ui.MainActivity
+import com.example.gymfortemobile.View.ui.home.IncripcionFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,32 +69,58 @@ class InscripcionViewModel: ViewModel() {
         } )
     }
 
-/// no funciona
-    val inscripcionInfo = MutableLiveData<Inscripcion>()
+/// si funciona
+    val inscripcionInfo = MutableLiveData<DefaultResponse>()
 
-    fun getinscInfo (inscripcion: Inscripcion){
+    fun getinscInfo (inscripcio: Inscribir){
 
         val response = RetrofitHelpers.getRetrofit().create(InscripcionApi::class.java).
-        addinscripcion(inscripcion)
+        addinscripcion(inscripcio)
 
-        response.enqueue(object : Callback<Inscripcion> {
+        response.enqueue(object : Callback<DefaultResponse> {
             override fun onResponse(
-                call: Call<Inscripcion>,
-                response: Response<Inscripcion>
+                call: Call<DefaultResponse>,
+                response: Response<DefaultResponse>
             ) {
-                response.body()?.let {inscripcion->
+                response.body()?.let { inscripcion ->
                     inscripcionInfo.postValue(inscripcion)
 
-                    Log.e("JHON" , response.body().toString())
+               //     Log.e("JHON", response.body().toString())
+                    Log.e("JHON", response.body()?.mensaje.toString())
                 }
             }
-            override fun onFailure(call: Call<Inscripcion>, t: Throwable) {
-                Log.e("JHON" ,  t.message.toString())
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                Log.e("JHON", t.message.toString())
             }
-
-
-
         } )
+
+    }
+
+    val inscripInfo = MutableLiveData<DefaultResponse>()
+    fun getinscInfor (clase:Long,estado:String,reserva:Long){
+
+
+        val response =RetrofitHelpers.getRetrofit().create(InscripcionApi::class.java).
+        addInscripcio(clase,estado,reserva)
+
+            response.enqueue(object: Callback<DefaultResponse> {
+                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                    Log.e("JHON", "no"+t.message.toString())
+                }
+
+                override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>)
+                {
+                    response.body()?.let {
+                    inscripInfo.postValue(it)
+                        Log.e("JHON", "si"+response.body()?.mensaje.toString())
+
+                        /*Log.e("JHON", response.body().toString())*/
+                }
+                   // Log.e("JHON", "si"+response.body()?.mensaje.toString())
+                }
+
+            })
 
     }
 }

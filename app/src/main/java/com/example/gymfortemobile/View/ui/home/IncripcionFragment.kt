@@ -2,18 +2,15 @@ package com.example.gymfortemobile.View.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.example.gymfortemobile.Model.Clase
-import com.example.gymfortemobile.Model.Cliente
-import com.example.gymfortemobile.Model.Inscripcion
-import com.example.gymfortemobile.Model.Reserva
+import com.example.gymfortemobile.Model.Inscribir
 import com.example.gymfortemobile.ViewModel.InscripcionViewModel
 import com.example.gymfortemobile.databinding.FragmentInscripcionBinding
 import com.google.android.material.snackbar.Snackbar
@@ -37,31 +34,18 @@ class IncripcionFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(InscripcionViewModel::class.java)
 
 
-        /// no funciona
+        /// si funciona
         binding.btninscribir.setOnClickListener {
-            //id_reserva
-            val idd : Long
-            idd=binding.txtiid.text.toString().toLong()
 
-            //ID_CLASE
-            val amou = argss.amou
-            //val id : Long
+            val idcla = argss.amou
+            val idreser = binding.txtiid.text.toString().trim().toLong()
+            val inscripcion = Inscribir(  id = null,
+                clases  = idcla,
+                 estado = "string",
+                reservas = idreser)
+            viewModel.getinscInfo(inscripcion)
+            Toast.makeText(context, "Incripción realizada con exito", Toast.LENGTH_SHORT).show()
 
-            val userInfo = Inscripcion(  id = null,
-                clase = Clase(id=amou,null,null,null,null,null,null),
-                estado = "",
-                reserva = Reserva(id = idd, null,
-                    Cliente(null,null,null,null,null,null,null)
-                    ,null,true)
-            )
-
-            viewModel.getinscInfo(userInfo)
-
-/*
-            viewModel.getinscInfo(amou ,"string", idd)
-
-*/
-            showSnackbar("Inscripcion Realizada")
 
         }
 
