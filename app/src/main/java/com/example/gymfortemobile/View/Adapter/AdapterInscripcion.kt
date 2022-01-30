@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymfortemobile.Model.Clase
 
-import com.example.gymfortemobile.Model.Inscripcion
 import com.example.gymfortemobile.R
 import com.example.gymfortemobile.View.ui.home.ClaseFragmentDirections
 
@@ -29,7 +28,7 @@ class AdapterInscripcion (private val Lista:List<Clase>):
 
             val amountTv: TextView = view!!.findViewById(R.id.txtid)
             val amountw: TextView = view!!.findViewById(R.id.txtidcla)
-            val amountT: TextView = view!!.findViewById(R.id.txthor)
+            val amountT: TextView = view!!.findViewById(R.id.txtHoraIni)
             val amount = amountTv.text.toString().toLong()
             val amoun = amountT.text.toString()
             val amou = amountw.text.toString().toLong()

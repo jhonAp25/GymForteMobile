@@ -22,7 +22,6 @@ class IncripcionFragment : Fragment() {
     private val argss: IncripcionFragmentArgs by navArgs()
 
     private lateinit var  binding : FragmentInscripcionBinding
-
     private lateinit var viewModel: InscripcionViewModel
 
     override fun onCreateView(
@@ -41,7 +40,7 @@ class IncripcionFragment : Fragment() {
             val idreser = binding.txtiid.text.toString().trim().toLong()
             val inscripcion = Inscribir(  id = null,
                 clases  = idcla,
-                 estado = "string",
+                estado = "string",
                 reservas = idreser)
             viewModel.getinscInfo(inscripcion)
             Toast.makeText(context, "Incripción realizada con exito", Toast.LENGTH_SHORT).show()

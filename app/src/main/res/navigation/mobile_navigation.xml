@@ -37,6 +37,7 @@
             android:name="amount"
             app:argType="long"/>
     </fragment>
+
     <fragment
         android:id="@+id/navigation_pago"
         android:name="com.example.gymfortemobile.View.ui.pago.PagoFragment"

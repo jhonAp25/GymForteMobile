@@ -15,6 +15,8 @@ class Cliente (
     val celular: Long?,
     @SerializedName("correo")
     val correo:  String?,
+    @SerializedName("dni")
+    val dni:  String?,
     @SerializedName("foto")
     val foto:  String?
 

@@ -91,7 +91,7 @@ class HomeFragment : Fragment() {
 
 
 
-        /************************************** SHARED-PREFERENCES  *************/
+        /**************************************response- SHARED-PREFERENCES  *************/
         val shared = context?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
 
         val datos = shared?.getString("nombre", "XXXXX ") +", " + shared?.getString("apellido", "XXXXXX ")

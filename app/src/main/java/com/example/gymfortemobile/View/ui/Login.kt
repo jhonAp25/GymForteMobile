@@ -73,7 +73,10 @@ class Login : AppCompatActivity() {
                     guardarUsuario( jsonCliente.getString("nombre") ,
                                     jsonCliente.getString("foto"),
                                     jsonCliente.getString("apellido"),
-                                    jsonCliente.getString("id"));
+                                    jsonCliente.getString("id"),
+                                    jsonCliente.getString("celular"),
+                                    jsonCliente.getString("correo"),
+                                    jsonCliente.getString("dni"))
 
 
                 }) { error ->
@@ -86,13 +89,16 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun guardarUsuario(nombre: String? , imgPerfil: String?, apellido: String?, idCliente: String?) {
+    fun guardarUsuario(nombre: String? , imgPerfil: String?, apellido: String?, idCliente: String? ,telefono: String?, correo : String? , dni:String? ) {
         val shared = applicationContext.getSharedPreferences("usuario", Context.MODE_PRIVATE)
         val editor = shared.edit()
         editor.putString("nombre", nombre)
         editor.putString("apellido", apellido)
         editor.putString("imgPerfil", imgPerfil)
         editor.putString("id" , idCliente)
+        editor.putString("telefono", telefono)
+        editor.putString("correo", correo)
+        editor.putString("dni", dni)
         editor.commit()
     }
 

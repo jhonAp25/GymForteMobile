@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.example.gymfortemobile.Model.CalendarDateModel
-import com.example.gymfortemobile.Model.Inscripcion
 import com.example.gymfortemobile.R
 import com.example.gymfortemobile.Util.HorizontalItemDecoration
 import com.example.gymfortemobile.View.Adapter.AdapterCalendar
