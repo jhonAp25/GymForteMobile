@@ -7,8 +7,9 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardHorario"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +23,7 @@
                 android:id="@+id/txthorario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="TextView"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -46,6 +48,7 @@
                 android:id="@+id/txtDiscip"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="17dp"
                 android:layout_marginBottom="18dp"
                 android:paddingStart="8dp"

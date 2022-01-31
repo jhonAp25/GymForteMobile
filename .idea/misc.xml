@@ -20,10 +20,12 @@
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_dashboard.xml" value="0.278125" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_detalle_matricula.xml" value="0.278125" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_horario.xml" value="0.278125" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_inscripcion.xml" value="0.278125" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_notifications.xml" value="0.165625" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_pago.xml" value="0.33" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/fragment_perfil.xml" value="0.22" />
+        <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/item_card_clases.xml" value="0.5" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/item_card_dias.xml" value="0.5" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/item_card_disciplina.xml" value="0.5" />
         <entry key="..\:/ProyectoAndroid/GymForteMobile/app/src/main/res/layout/item_card_pago.xml" value="0.5" />
