@@ -21,6 +21,7 @@ class ViewHolderInscripcion (view: View): RecyclerView.ViewHolder(view) {
 //        binding.txtHoraFin.text= clase.horaFin?.substring(14)+" - "+clase.horaFin?.substring(14)
 
         binding.txtdisc.text= clase.disciplina?.nombre
+        binding.txtdate.text= clase.horaIni?.substring(0,10)
 
     }
 }

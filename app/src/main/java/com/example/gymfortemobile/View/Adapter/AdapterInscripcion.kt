@@ -31,7 +31,7 @@ class AdapterInscripcion (private val Lista:List<Clase>):
             val amountT: TextView = view!!.findViewById(R.id.txtHoraIni)
             val amountTt: TextView = view!!.findViewById(R.id.txtdisc)
 
-            val amountTtt: TextView = view!!.findViewById(R.id.txtfech)
+            val amountTtt: TextView = view!!.findViewById(R.id.txtdate)
 
             val amount = amountTv.text.toString().toLong()
             val amoun = amountT.text.toString()

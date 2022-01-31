@@ -58,7 +58,7 @@ class IncripcionFragment : Fragment() {
         val amount = argss.amount
         val amoun = argss.amoun
         val disc = argss.disciplina
-        val fech = argss.fech
+       // val fech = argss.fech
 
         val id : Long
 
@@ -71,7 +71,7 @@ class IncripcionFragment : Fragment() {
             binding.txtedad.text=trainer.fechaNac
             binding.txtgenero.text=trainer.genero
             binding.txthora.text=amoun
-            binding.txtfechaclas.text=fech
+            binding.txtfechaclas.text="2022-01-22"
 
 
             Picasso.get().load(trainer.foto).into(binding.imgtrainer)
