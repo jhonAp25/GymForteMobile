@@ -22,6 +22,7 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
     private val list = ArrayList<CalendarDateModel>()
 
     var listene: OnItemClickListener? = null
+   // private var mListener2: OnItemClickListenerr? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyViewHolder{
         val inflater = LayoutInflater.from(parent.context)
@@ -35,6 +36,7 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(list[position])
+
     }
 
     override fun getItemCount(): Int = list.size
@@ -50,6 +52,7 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
     inner class MyViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         fun bind(calendarDateModel: CalendarDateModel) {
+
             /**
              * los texview y cardview de itemHorario
              */
@@ -108,6 +111,7 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
             cardView.setOnClickListener {
                 listener.invoke(calendarDateModel, adapterPosition)
                 listene!!.onClicked(dia = list[position].calendarDate)
+
             }
         }
 
@@ -115,6 +119,8 @@ class AdapterCalendar (private val listener: (calendarDateModel: CalendarDateMod
 
     interface OnItemClickListener{
         fun onClicked(dia:String)
+        
+
     }
 
 

@@ -19,4 +19,10 @@ data class CalendarDateModel(
             cal.time = data
             return cal[Calendar.DAY_OF_MONTH].toString()
         }
+    val calendarMonth: String
+        get() {
+            val cal = Calendar.getInstance()
+            cal.time = data
+            return cal[Calendar.MONTH].toString()
+        }
 }

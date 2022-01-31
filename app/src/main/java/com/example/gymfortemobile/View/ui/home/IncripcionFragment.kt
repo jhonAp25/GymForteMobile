@@ -57,6 +57,8 @@ class IncripcionFragment : Fragment() {
     private fun initUI(){
         val amount = argss.amount
         val amoun = argss.amoun
+        val disc = argss.disciplina
+        val fech = argss.fech
 
         val id : Long
 
@@ -65,11 +67,11 @@ class IncripcionFragment : Fragment() {
 
         viewModel.trainerInfo.observe(viewLifecycleOwner, Observer { trainer ->
             binding.txttrainer.text = trainer.nombre+", "+trainer.apellido
-            binding.txtdisciplina.text=trainer.disciplinas?.nombre
+            binding.txtdisciplina.text=disc
             binding.txtedad.text=trainer.fechaNac
             binding.txtgenero.text=trainer.genero
             binding.txthora.text=amoun
-            binding.txtfechaclas.text="2022-01-22"
+            binding.txtfechaclas.text=fech
 
 
             Picasso.get().load(trainer.foto).into(binding.imgtrainer)

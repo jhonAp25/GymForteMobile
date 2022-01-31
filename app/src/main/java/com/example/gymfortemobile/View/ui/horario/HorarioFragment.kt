@@ -43,12 +43,16 @@ class HorarioFragment : Fragment() {
      */
 
     private val sdf = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+    private val mm = SimpleDateFormat("MM", Locale.getDefault())
     private val cal = Calendar.getInstance()
     private val currentDate = Calendar.getInstance()
     private val dates = ArrayList<Date>()
-
-
+    private val currentDay = currentDate[Calendar.DAY_OF_MONTH]
+    // selected date
+    private var selectedDay: Int = currentDay
+    // all days in month
     private val calendarList2 = ArrayList<CalendarDateModel>()
+
     private lateinit var adapter: AdapterCalendar
     private lateinit var binding: FragmentHorarioBinding
 
@@ -92,12 +96,15 @@ class HorarioFragment : Fragment() {
         /**
          *Ahora configuraremos el mes calendario actual desde donde debemos comenzar
          */
-
+        var currentPosition = 0
         monthCalendar.set(Calendar.DAY_OF_MONTH,1)
 
         /**Ahora usaremos el bucle while para almacenar todas las fechas en una matriz
         y este bucle continuará hasta el tamaño máximo de días en el mes actual*/
         while (dates.size < maxDaysInMonth) {
+
+            if (monthCalendar[Calendar.DAY_OF_MONTH] == selectedDay)
+                currentPosition = dates.size
             dates.add(monthCalendar.time)
             calendarList.add(CalendarDateModel(monthCalendar.time))
             //Y después de agregar la fecha del primer día del mes actual,
@@ -105,6 +112,18 @@ class HorarioFragment : Fragment() {
             // Para eso, agregaremos 1 día más al calendario.
             monthCalendar.add(Calendar.DAY_OF_MONTH, 1)
         }
+
+        /**
+         * Si inicia la aplicación, centra el día actual, pero solo si el día actual
+         * no es de los primeros (1, 2, 3) ni de los últimos (29, 30, 31).
+         */
+        when {
+            currentPosition > 2 -> binding.recyclerView!!.scrollToPosition(currentPosition - 3)
+            maxDaysInMonth - currentPosition < 3 -> binding.recyclerView!!.scrollToPosition(currentPosition)
+            else -> binding.recyclerView!!.scrollToPosition(currentPosition)
+        }
+
+
         calendarList2.clear()
         calendarList2.addAll(calendarList)
         adapter.setData(calendarList)
@@ -157,8 +176,14 @@ class HorarioFragment : Fragment() {
         val shared = context?.getSharedPreferences("usuario", Context.MODE_PRIVATE)
 
         val idCliente = shared?.getString("id", "0 ").toString().toLong()
-
-        val fecha= "2022-01-$dia"
+        val mes :String
+        mes=mm.format(cal.time)
+        val fecha:String
+        if (dia.toLong()>9){
+            fecha= "2022-$mes-$dia"
+        }else{
+            fecha= "2022-$mes-0$dia"
+        }
         val idc:Long
         idc=idCliente
         inscripcionViewModel.getListaInscripciones(idc,fecha)

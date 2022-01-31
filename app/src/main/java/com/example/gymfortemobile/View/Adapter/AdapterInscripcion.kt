@@ -29,11 +29,19 @@ class AdapterInscripcion (private val Lista:List<Clase>):
             val amountTv: TextView = view!!.findViewById(R.id.txtid)
             val amountw: TextView = view!!.findViewById(R.id.txtidcla)
             val amountT: TextView = view!!.findViewById(R.id.txtHoraIni)
+            val amountTt: TextView = view!!.findViewById(R.id.txtdisc)
+
+            val amountTtt: TextView = view!!.findViewById(R.id.txtfech)
+
             val amount = amountTv.text.toString().toLong()
             val amoun = amountT.text.toString()
             val amou = amountw.text.toString().toLong()
+            val disciplina = amountTt.text.toString()
+
+            val fech = amountTtt.text.toString()
+
             val action = ClaseFragmentDirections.actionClaseFragmentToIncripcionFragment(amount,
-                amoun,amou)
+                amoun,amou,disciplina,fech)
             view.findNavController().navigate(action)
 
         }

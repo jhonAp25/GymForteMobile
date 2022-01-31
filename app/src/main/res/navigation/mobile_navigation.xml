@@ -57,6 +57,12 @@
         <argument
             android:name="amou"
             app:argType="long"/>
+        <argument
+            android:name="disciplina"
+            app:argType="string"/>
+        <argument
+            android:name="fech"
+            app:argType="string"/>
 
     </fragment>
 </navigation>
